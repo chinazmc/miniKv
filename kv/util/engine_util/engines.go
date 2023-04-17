@@ -68,6 +68,7 @@ func CreateDB(path string, raft bool) *badger.DB {
 	opts := badger.DefaultOptions
 	if raft {
 		// Do not need to write blob for raft engine because it will be deleted soon.
+		//不需要为raft引擎编写blob，因为它很快就会被删除。
 		opts.ValueThreshold = 0
 	}
 	opts.Dir = path
